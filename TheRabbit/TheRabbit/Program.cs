@@ -6,23 +6,7 @@ namespace TheRabbit
     {
         static void Main(string[] args)
         {
-            Rabbit myRabbit = new Rabbit(); // creating an instance of the Class 
-
-            Console.WriteLine("Enter the color of the eyes: ");
-
-            myRabbit.Eyes = Console.ReadLine();
-
-            Console.WriteLine("Enter the color of the fur: ");
-
-            myRabbit.Fur = Console.ReadLine();
-
-            Console.WriteLine("Enter the gender: ");
-
-            myRabbit.Gender = Console.ReadLine();
-
-            Console.WriteLine("Enter the birthdate: ");
-
-            myRabbit.BirthDate = Convert.ToInt16( Console.ReadLine()); // int.Parse(Console.ReadLine());
+            Rabbit myRabbit = new Rabbit(Eyes.black,Fur.grey,Gender.female,2010);
 
             //Runnig the things
 
