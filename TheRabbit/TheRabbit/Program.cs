@@ -6,7 +6,7 @@ namespace TheRabbit
     {
         static void Main(string[] args)
         {
-            Rabbit myRabbit = new Rabbit(Eyes.black,Fur.grey,Gender.female,2010);
+            Rabbit myRabbit = new Rabbit(Eyes.Black,Fur.Grey,Gender.Female, new DateTime(2010, 7, 29));
 
             //Runnig the things
 

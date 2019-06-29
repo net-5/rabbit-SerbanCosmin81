@@ -14,23 +14,23 @@ namespace TheRabbit
      
         public enum Eyes
         {
-            blue,
-            red,
-            black
+            Blue,
+            Red,
+            Black
         }
 
         public enum Fur
         {
-            white,
-            brown,
-            black,
-            grey
+            White,
+            Brown,
+            Black,
+            Grey
         }
 
         public enum Gender
         {
-            male,
-            female
+            Male,
+            Female
         }
         public class Rabbit
         {
@@ -54,29 +54,44 @@ namespace TheRabbit
                 get { return this.gender; }
                 set { this.gender = value; }
             }
-            private int birthYear;
-            public int BirthDate
+            private DateTime birthDate;
+            public DateTime BirthDate
             {
-                get { return this.birthYear; }
-                set { this.birthYear = value; }
+            get { return this.birthDate; }
+            set { this.birthDate = value; }
             }
 
-        public Rabbit(Eyes eyes, Fur fur, Gender gender, int birthYear) 
+        public Rabbit(Eyes eyes, Fur fur, Gender gender, DateTime birthDate) 
         {
             Eyes = eyes;
             Fur = fur;
             Gender = gender;
-            this.birthYear = birthYear;
+            this.birthDate = birthDate;
+        }
+
+        public int Age
+        {
+            get
+            {
+                DateTime currentDate = DateTime.Today;
+                int age = currentDate.Year - BirthDate.Year;
+
+                if (currentDate.Month < BirthDate.Month || (currentDate.Month == BirthDate.Month && currentDate.Day < BirthDate.Day))
+                {
+                    age--;
+                }
+                return age;
+            }
         }
 
         public string RabbitDescription()
         {
-            return $"I'm a verry cute {Gender} rabbit. My eyes are {Eyes}, my fur is clean and {Fur} and i am {2019 - BirthDate} years old";
+            return $"I'm a verry cute {Gender} rabbit. My eyes are {Eyes}, my fur is clean and {Fur} and i am {Age} years old";
         }
 
         public string AgeInfo()
         {
-            return $"I'm a {(2019 - BirthDate).ToString()} years old {Gender} RaBBiT .";
+            return $"I'm a {(Age).ToString()} years old {Gender} RaBBiT .";
         }
 
         public string RunOrMove()
